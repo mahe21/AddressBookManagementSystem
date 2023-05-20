@@ -8,13 +8,27 @@ namespace AddressBookSystem
 {
     public class Contact
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public string Zip { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
+        public string FirstName;
+        public string LastName;
+        public string Address;
+        public string City;
+        public string State;
+        public long Pincode;
+        public long PhoneNumber;
+        public string Email;
+
+        public override string ToString()
+        {
+            return @$"
+             Name: {FirstName} {LastName}\n
+            Email: {this.Email}\n
+            PhoneNumber: {this.PhoneNumber}\n
+            City: {this.City}\n
+            State: {this.State}\n
+            Pincode: {this.Pincode}\n
+            Address: {this.Address}\n
+            ------------------------------------
+            ";
+        }
     }
 }

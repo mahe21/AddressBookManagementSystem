@@ -6,66 +6,25 @@ namespace AddressBookSystem
     {
         static void Main(string[] args)
         {
-            AddressBook addressBook = new AddressBook();
-
-            Console.WriteLine("=== Address Book ===");
-
+            AddressBookManagement addressBookManagement = new AddressBookManagement();
             while (true)
             {
-                Console.WriteLine("1. Add Contact");
-                Console.WriteLine("2. Display Contacts");
-                Console.WriteLine("3. Exit");
-                Console.Write("Enter your choice: ");
-                string choice = Console.ReadLine();
-
-                switch (choice)
+                Console.WriteLine("Enter O to open an AddressBook\nEnter C to create an AddressBook");
+                char input = Console.ReadLine().ToUpper()[0];
+                switch (input)
                 {
-                    case "1":
-                        Contact newContact = new Contact();
-
-                        Console.Write("First Name: ");
-                        newContact.FirstName = Console.ReadLine();
-
-                        Console.Write("Last Name: ");
-                        newContact.LastName = Console.ReadLine();
-
-                        Console.Write("Address: ");
-                        newContact.Address = Console.ReadLine();
-
-                        Console.Write("City: ");
-                        newContact.City = Console.ReadLine();
-
-                        Console.Write("State: ");
-                        newContact.State = Console.ReadLine();
-
-                        Console.Write("ZIP Code: ");
-                        newContact.Zip = Console.ReadLine();
-
-                        Console.Write("Phone Number: ");
-                        newContact.PhoneNumber = Console.ReadLine();
-
-                        Console.Write("Email: ");
-                        newContact.Email = Console.ReadLine();
-
-                        addressBook.AddContact(newContact);
-
-                        Console.WriteLine("Contact added successfully!");
-                        Console.WriteLine();
+                    case 'O':
+                        addressBookManagement.OpenAddressBook();
                         break;
-
-                    case "2":
-                        Console.WriteLine("=== Contacts ===");
-                        addressBook.DisplayContacts();
+                    case 'C':
+                        addressBookManagement.CreateAddressBook();
                         break;
-
-                    case "3":
-                        Console.WriteLine("Exiting...");
-                        return;
-
                     default:
-                        Console.WriteLine("Invalid choice! Please try again.");
+                        Console.WriteLine("Invalid Entry try again");
                         break;
                 }
+                Thread.Sleep(2000);
+                Console.Clear();
             }
         }
     }
