@@ -13,9 +13,8 @@ namespace AddressBookSystem
             while (true)
             {
                 Console.WriteLine("1. Add Contact");
-                Console.WriteLine("2. Delete Contact");
-                Console.WriteLine("3. Display Contacts");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("2. Display Contacts");
+                Console.WriteLine("3. Exit");
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
 
@@ -55,24 +54,17 @@ namespace AddressBookSystem
                         break;
 
                     case "2":
-                        Console.Write("Enter the first name of the contact to delete: ");
-                        string firstNameToDelete = Console.ReadLine();
-
-                        Console.Write("Enter the last name of the contact to delete: ");
-                        string lastNameToDelete = Console.ReadLine();
-
-                        addressBook.DeleteContact(firstNameToDelete, lastNameToDelete);
-                        Console.WriteLine();
-                        break;
-
-                    case "3":
                         Console.WriteLine("=== Contacts ===");
                         addressBook.DisplayContacts();
                         break;
 
-                    case "4":
+                    case "3":
                         Console.WriteLine("Exiting...");
                         return;
+
+                    default:
+                        Console.WriteLine("Invalid choice! Please try again.");
+                        break;
                 }
             }
         }
