@@ -20,39 +20,14 @@ namespace AddressBookSystem
             contacts.Add(contact);
         }
 
-        public void EditContact(string firstName, string lastName)
+        public void DeleteContact(string firstName, string lastName)
         {
             Contact contact = FindContact(firstName, lastName);
 
             if (contact != null)
             {
-                Console.WriteLine("Enter the updated details for the contact:");
-
-                Console.Write("First Name: ");
-                contact.FirstName = Console.ReadLine();
-
-                Console.Write("Last Name: ");
-                contact.LastName = Console.ReadLine();
-
-                Console.Write("Address: ");
-                contact.Address = Console.ReadLine();
-
-                Console.Write("City: ");
-                contact.City = Console.ReadLine();
-
-                Console.Write("State: ");
-                contact.State = Console.ReadLine();
-
-                Console.Write("ZIP Code: ");
-                contact.Zip = Console.ReadLine();
-
-                Console.Write("Phone Number: ");
-                contact.PhoneNumber = Console.ReadLine();
-
-                Console.Write("Email: ");
-                contact.Email = Console.ReadLine();
-
-                Console.WriteLine("Contact updated successfully!");
+                contacts.Remove(contact);
+                Console.WriteLine("Contact deleted successfully!");
             }
             else
             {
